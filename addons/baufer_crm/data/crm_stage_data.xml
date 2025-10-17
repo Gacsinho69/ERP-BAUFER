@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- Stages del pipeline BAUFER -->
+        <record id="stage_lead_new" model="crm.stage">
+            <field name="name">Nuevo</field>
+            <field name="sequence">1</field>
+            <field name="fold" eval="False"/>
+        </record>
+        
+        <record id="stage_lead_cadence" model="crm.stage">
+            <field name="name">En Cadencia (Intento 1-7)</field>
+            <field name="sequence">2</field>
+            <field name="fold" eval="False"/>
+        </record>
+        
+        <record id="stage_lead_connected" model="crm.stage">
+            <field name="name">Conectado</field>
+            <field name="sequence">3</field>
+            <field name="fold" eval="False"/>
+        </record>
+        
+        <record id="stage_lead_qualified" model="crm.stage">
+            <field name="name">Calificado (BANT)</field>
+            <field name="sequence">4</field>
+            <field name="fold" eval="False"/>
+        </record>
+        
+        <record id="stage_lead_quote_prep" model="crm.stage">
+            <field name="name">Cotización en Preparación</field>
+            <field name="sequence">5</field>
+            <field name="fold" eval="False"/>
+        </record>
+        
+        <record id="stage_lead_quote_sent" model="crm.stage">
+            <field name="name">Cotización Enviada</field>
+            <field name="sequence">6</field>
+            <field name="fold" eval="False"/>
+        </record>
+        
+        <record id="stage_lead_negotiation" model="crm.stage">
+            <field name="name">Negociación</field>
+            <field name="sequence">7</field>
+            <field name="fold" eval="False"/>
+        </record>
+        
+    </data>
+</odoo>
+

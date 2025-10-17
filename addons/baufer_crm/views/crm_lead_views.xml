@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- Vista de formulario extendida con campos BAUFER -->
+    <record id="crm_lead_view_form_baufer" model="ir.ui.view">
+        <field name="name">crm.lead.form.baufer</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            
+            <!-- Agregar botón de primer contacto en header -->
+            <xpath expr="//header" position="inside">
+                <button name="action_mark_first_contact" 
+                        string="Marcar Primer Contacto" 
+                        type="object" 
+                        class="oe_highlight"
+                        invisible="first_contact_date"/>
+            </xpath>
+            
+            <!-- Agregar grupo de Score BANT después de probabilidad -->
+            <xpath expr="//field[@name='probability']" position="after">
+                <field name="bant_score" widget="percentpie"/>
+            </xpath>
+            
+            <!-- Agregar tab de Calificación BANT -->
+            <xpath expr="//notebook" position="inside">
+                <page string="🎯 Calificación BANT" name="bant">
+                    <group>
+                        <group string="Budget (Presupuesto)">
+                            <field name="bant_budget" widget="radio"/>
+                        </group>
+                        <group string="Authority (Autoridad)">
+                            <field name="bant_authority" widget="radio"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Need (Necesidad)">
+                            <field name="bant_need" widget="radio"/>
+                            <field name="need_documented" placeholder="Describe la necesidad específica del cliente..."/>
+                        </group>
+                        <group string="Timeline (Plazo)">
+                            <field name="bant_timeline" widget="radio"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="discovery_checklist" widget="radio"/>
+                    </group>
+                </page>
+                
+                <page string="📦 Importación" name="import_data">
+                    <group>
+                        <group>
+                            <field name="incoterm_expected"/>
+                        </group>
+                        <group>
+                            <field name="territory"/>
+                            <field name="lead_origin"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+            
+            <!-- Agregar campo de primer contacto en extra info -->
+            <xpath expr="//field[@name='date_open']" position="after">
+                <field name="first_contact_date"/>
+            </xpath>
+            
+        </field>
+    </record>
+    
+    <!-- Vista kanban con score BANT visible -->
+    <record id="crm_lead_view_kanban_baufer" model="ir.ui.view">
+        <field name="name">crm.lead.kanban.baufer</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='priority']" position="after">
+                <field name="bant_score"/>
+            </xpath>
+            <xpath expr="//div[hasclass('oe_kanban_bottom_left')]" position="inside">
+                <span class="badge badge-pill" t-if="record.bant_score.raw_value >= 70" 
+                      style="background-color: #28a745;">
+                    BANT: <t t-esc="record.bant_score.value"/>%
+                </span>
+                <span class="badge badge-pill" t-elif="record.bant_score.raw_value >= 50" 
+                      style="background-color: #ffc107;">
+                    BANT: <t t-esc="record.bant_score.value"/>%
+                </span>
+                <span class="badge badge-pill" t-else=""
+                      style="background-color: #dc3545;">
+                    BANT: <t t-esc="record.bant_score.value"/>%
+                </span>
+            </xpath>
+        </field>
+    </record>
+    
+</odoo>
+

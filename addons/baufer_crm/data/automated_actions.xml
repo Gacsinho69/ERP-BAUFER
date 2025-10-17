@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- Acción automática: Asignar territorio por país -->
+        <record id="action_assign_territory" model="base.automation">
+            <field name="name">BAUFER: Asignar Territorio</field>
+            <field name="model_id" ref="crm.model_crm_lead"/>
+            <field name="state">code</field>
+            <field name="trigger">on_create</field>
+            <field name="active" eval="True"/>
+            <field name="code">
+# Asignación básica por país
+if record.country_id:
+    if record.country_id.code == 'CL':
+        record.territory = 'santiago'
+    else:
+        record.territory = 'internacional'
+            </field>
+        </record>
+        
+    </data>
+</odoo>
+
