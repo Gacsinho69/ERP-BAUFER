@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     
+    <!-- Template principal de cotización BAUFER -->
     <template id="report_saleorder_document_baufer" inherit_id="sale.report_saleorder_document">
         
+        <!-- Reemplazar todo el header -->
         <xpath expr="//div[hasclass('page')]/div[1]" position="replace">
+            
+            <!-- Header con logo y datos de empresa -->
             <div class="baufer-header">
                 <div class="row">
                     <div class="col-6">
@@ -22,6 +26,7 @@
             
             <div class="baufer-separator"/>
             
+            <!-- Información del presupuesto y cliente -->
             <div class="baufer-info-grid">
                 <div class="row">
                     <div class="col-6">
@@ -67,6 +72,7 @@
                     </div>
                 </div>
                 
+                <!-- Información del vehículo -->
                 <div class="row" t-if="doc.vehicle_brand or doc.vehicle_model">
                     <div class="col-12">
                         <div class="baufer-separator-small"/>
@@ -90,9 +96,11 @@
             
             <div class="baufer-separator"/>
             
+            <!-- Título de sección -->
             <h4 class="baufer-section-title">I. Repuestos, partes o piezas</h4>
         </xpath>
         
+        <!-- Reemplazar la tabla de productos -->
         <xpath expr="//table[@name='sale_order_line_table']" position="replace">
             <table class="table table-sm baufer-products-table" name="sale_order_line_table">
                 <thead class="baufer-table-header">
@@ -124,6 +132,7 @@
             </table>
         </xpath>
         
+        <!-- Reemplazar el total -->
         <xpath expr="//div[@id='total']" position="replace">
             <div id="total" class="baufer-totals">
                 <div class="row">
@@ -163,3 +172,4 @@
     </template>
     
 </odoo>
+

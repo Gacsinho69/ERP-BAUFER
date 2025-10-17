@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    
+    <!-- Vista de formulario extendida con información de vehículo y contacto -->
     <record id="view_order_form_baufer" model="ir.ui.view">
         <field name="name">sale.order.form.baufer</field>
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             
+            <!-- Agregar sección de vehículo después del cliente -->
             <xpath expr="//field[@name='partner_id']" position="after">
-                <group string="Información del Vehículo" col="4">
+                <group string="🚌 Información del Vehículo" col="4">
                     <field name="vehicle_brand" placeholder="Mercedes Benz"/>
                     <field name="vehicle_model" placeholder="O500"/>
                     <field name="vehicle_plate" placeholder="BDXW84"/>
@@ -15,15 +18,17 @@
                 </group>
             </xpath>
             
+            <!-- Agregar sección de contacto -->
             <xpath expr="//field[@name='partner_id']" position="after">
-                <group string="Información de Contacto" col="4">
+                <group string="👤 Información de Contacto" col="4">
                     <field name="customer_branch" placeholder="Pajaritos"/>
                     <field name="customer_contact_name" placeholder="Armando Blanco"/>
-                    <field name="customer_contact_email" placeholder="contacto@cliente.cl"/>
-                    <field name="customer_contact_phone" placeholder="+56 9 5651 3215"/>
+                    <field name="customer_contact_email" placeholder="contacto@cliente.cl" widget="email"/>
+                    <field name="customer_contact_phone" placeholder="+56 9 5651 3215" widget="phone"/>
                 </group>
             </xpath>
             
+            <!-- Agregar columna de código y origen en líneas de pedido -->
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="before">
                 <field name="product_code" optional="show"/>
             </xpath>
@@ -34,30 +39,6 @@
             
         </field>
     </record>
+    
 </odoo>
-```
 
-4. Commit message: `Agregar vistas personalizadas`
-5. **Commit changes**
-
----
-
-## **ARCHIVO FALTANTE 2: El Logo**
-
-### **Primero necesitas tener el logo guardado en tu PC:**
-
-**Método 1 - Desde esta conversación:**
-1. Busca hacia arriba en esta conversación la imagen del logo BAUFER que te mostré
-2. Click derecho → "Guardar imagen como..."
-3. Guárdala en tu PC como `baufer_logo.png`
-
-**Método 2 - Te doy un link directo:**
-Si no encuentras la imagen, puedo generarte el logo de nuevo. ¿Necesitas que te lo muestre otra vez?
-
-### **Subir el logo a GitHub:**
-
-1. En tu repo, click en **"Add file"** → **"Upload files"**
-2. Arrastra el archivo `baufer_logo.png` que guardaste
-3. **IMPORTANTE:** Antes de hacer commit, en el campo que dice "Name your file..." cambia la ruta a:
-```
-   static/src/img/baufer_logo.png
