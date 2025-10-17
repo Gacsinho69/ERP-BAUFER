@@ -28,13 +28,14 @@
                 </group>
             </xpath>
             
-            <!-- Agregar columna de código y origen en líneas de pedido -->
-            <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="before">
-                <field name="product_code" optional="show"/>
+            <!-- Agregar columna de código en líneas de pedido -->
+            <xpath expr="//field[@name='order_line']//field[@name='product_template_id']" position="before">
+                <field name="product_code" optional="show" string="Código"/>
             </xpath>
             
-            <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="after">
-                <field name="origin_location" optional="show"/>
+            <!-- Agregar columna de origen después de precio -->
+            <xpath expr="//field[@name='order_line']//field[@name='price_unit']" position="after">
+                <field name="origin_location" optional="show" string="Origen"/>
             </xpath>
             
         </field>
