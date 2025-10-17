@@ -1,0 +1,127 @@
+:root {
+    --baufer-blue: #003D7A;
+    --baufer-orange: #FF6200;
+    --baufer-gray: #F5F5F5;
+    --baufer-dark-gray: #666666;
+}
+
+.baufer-header {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+}
+
+.baufer-company-info {
+    font-size: 11px;
+    line-height: 1.6;
+    color: var(--baufer-dark-gray);
+}
+
+.baufer-separator {
+    height: 3px;
+    background: linear-gradient(to right, var(--baufer-blue) 0%, var(--baufer-blue) 80%, var(--baufer-orange) 80%, var(--baufer-orange) 100%);
+    margin: 15px 0;
+}
+
+.baufer-separator-small {
+    height: 1px;
+    background-color: #DDDDDD;
+    margin: 10px 0;
+}
+
+.baufer-info-grid {
+    margin: 15px 0;
+    font-size: 10px;
+}
+
+.baufer-info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.baufer-info-table td {
+    padding: 3px 8px;
+    border: none;
+}
+
+.baufer-info-table td:first-child {
+    color: var(--baufer-dark-gray);
+    width: 35%;
+}
+
+.baufer-section-title {
+    color: var(--baufer-blue);
+    font-size: 13px;
+    font-weight: bold;
+    margin: 15px 0 10px 0;
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--baufer-blue);
+}
+
+.baufer-products-table {
+    font-size: 10px;
+    margin-top: 10px;
+}
+
+.baufer-table-header {
+    background-color: var(--baufer-blue) !important;
+    color: white !important;
+}
+
+.baufer-table-header th {
+    padding: 8px 5px !important;
+    font-weight: bold;
+    border: none !important;
+}
+
+.baufer-products-table tbody tr {
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.baufer-products-table tbody td {
+    padding: 6px 5px;
+    vertical-align: top;
+}
+
+.baufer-totals {
+    margin-top: 20px;
+}
+
+.baufer-totals-table {
+    font-size: 11px;
+}
+
+.baufer-totals-table td {
+    padding: 5px 10px;
+    border: none;
+}
+
+.baufer-discount {
+    color: var(--baufer-orange);
+}
+
+.baufer-total-row {
+    background-color: var(--baufer-gray);
+    border-top: 2px solid var(--baufer-blue) !important;
+}
+
+.baufer-total-row td {
+    padding: 10px !important;
+    font-size: 13px;
+}
+
+.page {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+```
+
+---
+
+## **ARCHIVO 8: EL LOGO (Imagen)**
+
+Para el logo necesitas subirlo como archivo. **Haz esto:**
+
+1. En tu repo de GitHub, click en **"Add file"** → **"Upload files"**
+2. Arrastra la imagen del logo BAUFER (o click en "choose your files")
+3. **IMPORTANTE:** Antes de hacer commit, en el cuadro de arriba donde dice "Name your file", escribe:
+```
+   addons/baufer_sale_report/static/src/img/baufer_logo.png
