@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Cotización BAUFER</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+/* ============================================
+   BAUFER - Cotización Profesional Minimalista
+   Diseño moderno, limpio y elegante
+   ============================================ */
+
+/* Variables de color */
+:root {
+    --baufer-primary: #003D7A;      /* Azul corporativo */
+    --baufer-accent: #FF6200;       /* Naranja GULF */
+    --baufer-text: #2C3E50;         /* Texto principal */
+    --baufer-text-light: #6C757D;   /* Texto secundario */
+    --baufer-border: #E1E8ED;       /* Bordes sutiles */
+    --baufer-bg-light: #F8F9FA;     /* Fondo claro */
+    --baufer-success: #27AE60;      /* Verde */
+}
+
+/* ============================================
+   CONFIGURACIÓN GENERAL
+   ============================================ */
+
+body {
+    background: #e9ecef;
+    padding: 20px;
+}
+
+.page {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--baufer-text);
+    line-height: 1.6;
+    font-size: 10pt;
+    max-width: 21cm;
+    margin: 0 auto;
+    background: white;
+    padding: 40px 50px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+/* ============================================
+   HEADER - Encabezado minimalista
+   ============================================ */
+
+.baufer-header {
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+}
+
+.baufer-logo {
+    max-height: 60px;
+    height: auto;
+}
+
+.baufer-company-info {
+    line-height: 1.7;
+}
+
+.company-name {
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--baufer-primary);
+    margin-bottom: 4px;
+    letter-spacing: 0.3px;
+}
+
+.company-details {
+    font-size: 9pt;
+    color: var(--baufer-text-light);
+    margin-bottom: 2px;
+}
+
+.company-email {
+    font-size: 9pt;
+    color: var(--baufer-accent);
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+/* ============================================
+   SEPARADOR MINIMALISTA
+   ============================================ */
+
+.baufer-divider {
+    height: 1px;
+    background: linear-gradient(to right,
+        var(--baufer-primary) 0%,
+        var(--baufer-primary) 75%,
+        var(--baufer-accent) 100%);
+    margin: 20px 0;
+    opacity: 0.3;
+}
+
+/* ============================================
+   TÍTULO DEL DOCUMENTO
+   ============================================ */
+
+.baufer-doc-title {
+    margin: 25px 0 30px 0;
+}
+
+.doc-type {
+    font-size: 24pt;
+    font-weight: 300;
+    color: var(--baufer-primary);
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.doc-number {
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--baufer-text);
+    margin-bottom: 4px;
+}
+
+.doc-date {
+    font-size: 10pt;
+    color: var(--baufer-text-light);
+    font-weight: 400;
+}
+
+/* ============================================
+   SECCIONES DE INFORMACIÓN
+   ============================================ */
+
+.section-label {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--baufer-primary);
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--baufer-accent);
+    display: inline-block;
+    min-width: 120px;
+}
+
+.baufer-client-section,
+.baufer-vehicle-section {
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: var(--baufer-bg-light);
+    border-left: 3px solid var(--baufer-accent);
+}
+
+.baufer-info-row {
+    margin-top: 8px;
+}
+
+.info-group {
+    display: flex;
+    margin-bottom: 8px;
+    align-items: baseline;
+}
+
+.info-label {
+    font-size: 9pt;
+    font-weight: 600;
+    color: var(--baufer-text-light);
+    min-width: 80px;
+    flex-shrink: 0;
+}
+
+.info-value {
+    font-size: 10pt;
+    color: var(--baufer-text);
+    font-weight: 400;
+}
+
+/* ============================================
+   TABLA DE PRODUCTOS - Diseño ultra limpio
+   ============================================ */
+
+.baufer-products-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.baufer-products-table thead tr {
+    border-bottom: 2px solid var(--baufer-primary);
+}
+
+.baufer-products-table thead th {
+    padding: 12px 10px;
+    text-align: left;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    color: var(--baufer-primary);
+    background-color: transparent;
+    border: none;
+}
+
+.baufer-products-table tbody tr {
+    border-bottom: 1px solid var(--baufer-border);
+    transition: background-color 0.2s ease;
+}
+
+.baufer-products-table tbody tr:last-child {
+    border-bottom: 2px solid var(--baufer-border);
+}
+
+.baufer-products-table tbody tr:hover {
+    background-color: var(--baufer-bg-light);
+}
+
+.baufer-products-table tbody td {
+    padding: 12px 10px;
+    font-size: 9.5pt;
+    color: var(--baufer-text);
+    vertical-align: top;
+    border: none;
+}
+
+/* Columnas específicas */
+.col-qty {
+    width: 8%;
+    text-align: center;
+}
+
+.col-code {
+    width: 15%;
+    text-align: left;
+    font-family: 'Courier New', monospace;
+    font-size: 9pt;
+    color: var(--baufer-text-light);
+}
+
+.col-desc {
+    width: 38%;
+    text-align: left;
+}
+
+.col-origin {
+    width: 12%;
+    text-align: center;
+    font-size: 9pt;
+    color: var(--baufer-text-light);
+}
+
+.col-price {
+    width: 13%;
+    text-align: right;
+    font-weight: 500;
+}
+
+.col-total {
+    width: 14%;
+    text-align: right;
+    font-weight: 600;
+    color: var(--baufer-primary);
+}
+
+/* ============================================
+   SECCIÓN DE TOTALES - Diseño elegante
+   ============================================ */
+
+.baufer-totals-section {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.totals-container {
+    border: 1px solid var(--baufer-border);
+    background-color: white;
+    padding: 0;
+}
+
+.total-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--baufer-border);
+}
+
+.total-line:last-child {
+    border-bottom: none;
+}
+
+.total-label {
+    font-size: 10pt;
+    color: var(--baufer-text-light);
+    font-weight: 500;
+}
+
+.total-value {
+    font-size: 11pt;
+    color: var(--baufer-text);
+    font-weight: 600;
+    text-align: right;
+}
+
+.discount-value {
+    color: var(--baufer-accent) !important;
+}
+
+.total-final {
+    background-color: var(--baufer-primary);
+    color: white;
+    padding: 15px 20px !important;
+    margin-top: 5px;
+}
+
+.total-final .total-label {
+    font-size: 11pt;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.total-final .total-value {
+    font-size: 16pt;
+    font-weight: 700;
+    color: white;
+}
+
+/* ============================================
+   FOOTER NOTE
+   ============================================ */
+
+.baufer-footer-note {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--baufer-border);
+    text-align: center;
+}
+
+/* ============================================
+   UTILIDADES Y AJUSTES
+   ============================================ */
+
+/* Alineación de texto */
+.text-right {
+    text-align: right !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+/* Alineación vertical */
+.align-items-center {
+    align-items: center !important;
+}
+
+/* Mejoras de impresión */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .page {
+        box-shadow: none;
+        max-width: 100%;
+    }
+
+    .baufer-products-table tbody tr {
+        page-break-inside: avoid;
+    }
+
+    .baufer-totals-section {
+        page-break-inside: avoid;
+    }
+
+    .baufer-header {
+        page-break-after: avoid;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- Header minimalista con logo y datos de empresa -->
+        <div class="baufer-header">
+            <div class="row align-items-center">
+                <div class="col-7">
+                    <img src="addons/baufer_sale_report/static/src/img/baufer_logo.png"
+                         alt="BAUFER"
+                         class="baufer-logo"/>
+                </div>
+                <div class="col-5 text-right">
+                    <div class="baufer-company-info">
+                        <div class="company-name">Inversiones Séneca SpA.</div>
+                        <div class="company-details">RUT 77.912.335-9</div>
+                        <div class="company-details">El Bosque Norte 200, Of. 701</div>
+                        <div class="company-details">Providencia, Santiago</div>
+                        <div class="company-email">contacto@baufer.cl</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Separador minimalista -->
+        <div class="baufer-divider"></div>
+
+        <!-- Título del documento -->
+        <div class="baufer-doc-title">
+            <div class="row">
+                <div class="col-6">
+                    <h2 class="doc-type">COTIZACIÓN</h2>
+                </div>
+                <div class="col-6 text-right">
+                    <div class="doc-number">S00125</div>
+                    <div class="doc-date">24/10/2025</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Información del cliente - Grid minimalista -->
+        <div class="baufer-client-section">
+            <div class="section-label">CLIENTE</div>
+            <div class="row baufer-info-row">
+                <div class="col-6">
+                    <div class="info-group">
+                        <span class="info-label">Nombre</span>
+                        <span class="info-value">Transportes Los Andes S.A.</span>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">Dirección</span>
+                        <span class="info-value">Av. Apoquindo 3000, Las Condes</span>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">Sucursal</span>
+                        <span class="info-value">Casa Matriz</span>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="info-group">
+                        <span class="info-label">Contacto</span>
+                        <span class="info-value">Juan Pérez González</span>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">Email</span>
+                        <span class="info-value">juan.perez@losandes.cl</span>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">Teléfono</span>
+                        <span class="info-value">+56 9 8765 4321</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Información del vehículo (si existe) -->
+        <div class="baufer-vehicle-section">
+            <div class="section-label">VEHÍCULO</div>
+            <div class="row baufer-info-row">
+                <div class="col-6">
+                    <div class="info-group">
+                        <span class="info-label">Marca</span>
+                        <span class="info-value">MG</span>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">Modelo</span>
+                        <span class="info-value">MG5 Electric 2024</span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="info-group">
+                        <span class="info-label">Patente</span>
+                        <span class="info-value">HJKL-89</span>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">VIN</span>
+                        <span class="info-value">LSJW24E57P1234567</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Etiqueta de sección de productos -->
+        <div class="section-label" style="margin-top: 30px;">DETALLE</div>
+
+        <!-- Tabla de productos - Diseño minimalista -->
+        <table class="baufer-products-table">
+            <thead>
+                <tr>
+                    <th class="col-qty">CANT.</th>
+                    <th class="col-code">CÓDIGO</th>
+                    <th class="col-desc">DESCRIPCIÓN</th>
+                    <th class="col-origin">ORIGEN</th>
+                    <th class="col-price">PRECIO UNIT.</th>
+                    <th class="col-total">TOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="product-line">
+                    <td class="col-qty">2</td>
+                    <td class="col-code">BRK-MG5-001</td>
+                    <td class="col-desc">Pastillas de freno delanteras MG5 Electric - Original</td>
+                    <td class="col-origin">SAIC</td>
+                    <td class="col-price">$85.000</td>
+                    <td class="col-total">$170.000</td>
+                </tr>
+                <tr class="product-line">
+                    <td class="col-qty">1</td>
+                    <td class="col-code">FLT-MG5-002</td>
+                    <td class="col-desc">Filtro de aire habitáculo con carbón activado</td>
+                    <td class="col-origin">SAIC</td>
+                    <td class="col-price">$32.500</td>
+                    <td class="col-total">$32.500</td>
+                </tr>
+                <tr class="product-line">
+                    <td class="col-qty">4</td>
+                    <td class="col-code">OIL-5W30-001</td>
+                    <td class="col-desc">Aceite sintético 5W-30 para motor eléctrico (reductor)</td>
+                    <td class="col-origin">Europa</td>
+                    <td class="col-price">$28.900</td>
+                    <td class="col-total">$115.600</td>
+                </tr>
+                <tr class="product-line">
+                    <td class="col-qty">1</td>
+                    <td class="col-code">SRV-CHECK</td>
+                    <td class="col-desc">Servicio de mantención 20.000 km - Incluye mano de obra y diagnóstico</td>
+                    <td class="col-origin">Nacional</td>
+                    <td class="col-price">$95.000</td>
+                    <td class="col-total">$95.000</td>
+                </tr>
+                <tr class="product-line">
+                    <td class="col-qty">1</td>
+                    <td class="col-code">TIRE-ROT</td>
+                    <td class="col-desc">Rotación de neumáticos y balanceo</td>
+                    <td class="col-origin">Nacional</td>
+                    <td class="col-price">$35.000</td>
+                    <td class="col-total">$35.000</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Sección de totales - Diseño minimalista y elegante -->
+        <div class="baufer-totals-section">
+            <div class="row">
+                <div class="col-7"></div>
+                <div class="col-5">
+                    <div class="totals-container">
+                        <!-- Descuento si existe -->
+                        <div class="total-line">
+                            <span class="total-label">Descuento</span>
+                            <span class="total-value discount-value">-$22.055</span>
+                        </div>
+
+                        <!-- Subtotal -->
+                        <div class="total-line">
+                            <span class="total-label">Subtotal</span>
+                            <span class="total-value">$426.045</span>
+                        </div>
+
+                        <!-- IVA -->
+                        <div class="total-line">
+                            <span class="total-label">IVA (19%)</span>
+                            <span class="total-value">$80.949</span>
+                        </div>
+
+                        <!-- Total final -->
+                        <div class="total-line total-final">
+                            <span class="total-label">TOTAL</span>
+                            <span class="total-value">$506.994</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nota al pie minimalista -->
+        <div class="baufer-footer-note">
+            <p style="margin: 0; font-size: 9px; color: #999;">
+                Esta cotización tiene una validez de 30 días desde la fecha de emisión.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
