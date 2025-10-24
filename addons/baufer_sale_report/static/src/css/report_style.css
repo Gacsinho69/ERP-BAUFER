@@ -1,122 +1,355 @@
-/* Colores BAUFER / GULF */
+/* ============================================
+   BAUFER - Cotización Profesional Minimalista
+   Diseño moderno, limpio y elegante
+   ============================================ */
+
+/* Variables de color */
 :root {
-    --baufer-blue: #003D7A;
-    --baufer-orange: #FF6200;
-    --baufer-gray: #F5F5F5;
-    --baufer-dark-gray: #666666;
+    --baufer-primary: #003D7A;      /* Azul corporativo */
+    --baufer-accent: #FF6200;       /* Naranja GULF */
+    --baufer-text: #2C3E50;         /* Texto principal */
+    --baufer-text-light: #6C757D;   /* Texto secundario */
+    --baufer-border: #E1E8ED;       /* Bordes sutiles */
+    --baufer-bg-light: #F8F9FA;     /* Fondo claro */
+    --baufer-success: #27AE60;      /* Verde */
 }
 
-/* Header */
+/* ============================================
+   CONFIGURACIÓN GENERAL
+   ============================================ */
+
+.page {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--baufer-text);
+    line-height: 1.6;
+    font-size: 10pt;
+}
+
+/* ============================================
+   HEADER - Encabezado minimalista
+   ============================================ */
+
 .baufer-header {
-    margin-bottom: 15px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+}
+
+.baufer-logo {
+    max-height: 60px;
+    height: auto;
 }
 
 .baufer-company-info {
-    font-size: 11px;
-    line-height: 1.6;
-    color: var(--baufer-dark-gray);
+    line-height: 1.7;
 }
 
-/* Separadores */
-.baufer-separator {
-    height: 3px;
-    background: linear-gradient(to right, var(--baufer-blue) 0%, var(--baufer-blue) 80%, var(--baufer-orange) 80%, var(--baufer-orange) 100%);
-    margin: 15px 0;
+.company-name {
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--baufer-primary);
+    margin-bottom: 4px;
+    letter-spacing: 0.3px;
 }
 
-.baufer-separator-small {
+.company-details {
+    font-size: 9pt;
+    color: var(--baufer-text-light);
+    margin-bottom: 2px;
+}
+
+.company-email {
+    font-size: 9pt;
+    color: var(--baufer-accent);
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+/* ============================================
+   SEPARADOR MINIMALISTA
+   ============================================ */
+
+.baufer-divider {
     height: 1px;
-    background-color: #DDDDDD;
-    margin: 10px 0;
+    background: linear-gradient(to right,
+        var(--baufer-primary) 0%,
+        var(--baufer-primary) 75%,
+        var(--baufer-accent) 100%);
+    margin: 20px 0;
+    opacity: 0.3;
 }
 
-/* Tablas de información */
-.baufer-info-grid {
-    margin: 15px 0;
+/* ============================================
+   TÍTULO DEL DOCUMENTO
+   ============================================ */
+
+.baufer-doc-title {
+    margin: 25px 0 30px 0;
 }
 
-.baufer-info-table {
+.doc-type {
+    font-size: 24pt;
+    font-weight: 300;
+    color: var(--baufer-primary);
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.doc-number {
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--baufer-text);
+    margin-bottom: 4px;
+}
+
+.doc-date {
+    font-size: 10pt;
+    color: var(--baufer-text-light);
+    font-weight: 400;
+}
+
+/* ============================================
+   SECCIONES DE INFORMACIÓN
+   ============================================ */
+
+.section-label {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--baufer-primary);
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--baufer-accent);
+    display: inline-block;
+    min-width: 120px;
+}
+
+.baufer-client-section,
+.baufer-vehicle-section {
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: var(--baufer-bg-light);
+    border-left: 3px solid var(--baufer-accent);
+}
+
+.baufer-info-row {
+    margin-top: 8px;
+}
+
+.info-group {
+    display: flex;
+    margin-bottom: 8px;
+    align-items: baseline;
+}
+
+.info-label {
+    font-size: 9pt;
+    font-weight: 600;
+    color: var(--baufer-text-light);
+    min-width: 80px;
+    flex-shrink: 0;
+}
+
+.info-value {
+    font-size: 10pt;
+    color: var(--baufer-text);
+    font-weight: 400;
+}
+
+/* ============================================
+   TABLA DE PRODUCTOS - Diseño ultra limpio
+   ============================================ */
+
+.baufer-products-table {
     width: 100%;
-    font-size: 10px;
+    border-collapse: collapse;
+    margin-top: 15px;
+    margin-bottom: 30px;
 }
 
-.baufer-info-table td {
-    padding: 4px 8px;
+.baufer-products-table thead tr {
+    border-bottom: 2px solid var(--baufer-primary);
+}
+
+.baufer-products-table thead th {
+    padding: 12px 10px;
+    text-align: left;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    color: var(--baufer-primary);
+    background-color: transparent;
     border: none;
 }
 
-.baufer-info-table td:first-child {
-    width: 30%;
-    color: var(--baufer-dark-gray);
+.baufer-products-table tbody tr {
+    border-bottom: 1px solid var(--baufer-border);
+    transition: background-color 0.2s ease;
 }
 
-/* Títulos de sección */
-.baufer-section-title {
-    color: var(--baufer-blue);
-    font-size: 13px;
-    font-weight: bold;
-    margin: 15px 0 10px 0;
-    padding-bottom: 5px;
-    border-bottom: 2px solid var(--baufer-orange);
+.baufer-products-table tbody tr:last-child {
+    border-bottom: 2px solid var(--baufer-border);
 }
 
-/* Tabla de productos */
-.baufer-products-table {
-    margin-top: 10px;
-    font-size: 10px;
+.baufer-products-table tbody tr:hover {
+    background-color: var(--baufer-bg-light);
 }
 
-.baufer-table-header {
-    background-color: var(--baufer-blue);
+.baufer-products-table tbody td {
+    padding: 12px 10px;
+    font-size: 9.5pt;
+    color: var(--baufer-text);
+    vertical-align: top;
+    border: none;
+}
+
+/* Columnas específicas */
+.col-qty {
+    width: 8%;
+    text-align: center;
+}
+
+.col-code {
+    width: 15%;
+    text-align: left;
+    font-family: 'Courier New', monospace;
+    font-size: 9pt;
+    color: var(--baufer-text-light);
+}
+
+.col-desc {
+    width: 38%;
+    text-align: left;
+}
+
+.col-origin {
+    width: 12%;
+    text-align: center;
+    font-size: 9pt;
+    color: var(--baufer-text-light);
+}
+
+.col-price {
+    width: 13%;
+    text-align: right;
+    font-weight: 500;
+}
+
+.col-total {
+    width: 14%;
+    text-align: right;
+    font-weight: 600;
+    color: var(--baufer-primary);
+}
+
+/* ============================================
+   SECCIÓN DE TOTALES - Diseño elegante
+   ============================================ */
+
+.baufer-totals-section {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.totals-container {
+    border: 1px solid var(--baufer-border);
+    background-color: white;
+    padding: 0;
+}
+
+.total-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--baufer-border);
+}
+
+.total-line:last-child {
+    border-bottom: none;
+}
+
+.total-label {
+    font-size: 10pt;
+    color: var(--baufer-text-light);
+    font-weight: 500;
+}
+
+.total-value {
+    font-size: 11pt;
+    color: var(--baufer-text);
+    font-weight: 600;
+    text-align: right;
+}
+
+.discount-value {
+    color: var(--baufer-accent) !important;
+}
+
+.total-final {
+    background-color: var(--baufer-primary);
+    color: white;
+    padding: 15px 20px !important;
+    margin-top: 5px;
+}
+
+.total-final .total-label {
+    font-size: 11pt;
+    font-weight: 700;
+    letter-spacing: 1px;
     color: white;
 }
 
-.baufer-table-header th {
-    padding: 8px 5px;
-    font-weight: bold;
-    border: none;
+.total-final .total-value {
+    font-size: 16pt;
+    font-weight: 700;
+    color: white;
 }
 
-.baufer-products-table tbody tr:nth-child(even) {
-    background-color: var(--baufer-gray);
+/* ============================================
+   FOOTER NOTE
+   ============================================ */
+
+.baufer-footer-note {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--baufer-border);
+    text-align: center;
 }
 
-.baufer-products-table td {
-    padding: 6px 5px;
-    vertical-align: top;
+/* ============================================
+   UTILIDADES Y AJUSTES
+   ============================================ */
+
+/* Alineación de texto */
+.text-right {
+    text-align: right !important;
 }
 
-/* Totales */
-.baufer-totals {
-    margin-top: 20px;
+.text-left {
+    text-align: left !important;
 }
 
-.baufer-totals-table {
-    font-size: 11px;
+.text-center {
+    text-align: center !important;
 }
 
-.baufer-totals-table td {
-    padding: 5px 10px;
-    border: none;
+/* Alineación vertical */
+.align-items-center {
+    align-items: center !important;
 }
 
-.baufer-discount {
-    color: var(--baufer-orange);
-}
+/* Mejoras de impresión */
+@media print {
+    .baufer-products-table tbody tr {
+        page-break-inside: avoid;
+    }
 
-.baufer-total-row {
-    background-color: var(--baufer-gray);
-    border-top: 2px solid var(--baufer-blue) !important;
-}
+    .baufer-totals-section {
+        page-break-inside: avoid;
+    }
 
-.baufer-total-row td {
-    padding: 10px !important;
-    font-size: 13px;
-}
-
-/* Ajustes generales */
-.page {
-    font-family: 'Helvetica', 'Arial', sans-serif;
+    .baufer-header {
+        page-break-after: avoid;
+    }
 }
 

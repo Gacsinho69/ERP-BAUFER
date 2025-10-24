@@ -1,175 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    
-    <!-- Template principal de cotización BAUFER -->
+
+    <!-- Template principal de cotización BAUFER - Diseño Profesional Minimalista -->
     <template id="report_saleorder_document_baufer" inherit_id="sale.report_saleorder_document">
-        
+
         <!-- Reemplazar todo el header -->
         <xpath expr="//div[hasclass('page')]/div[1]" position="replace">
-            
-            <!-- Header con logo y datos de empresa -->
+
+            <!-- Header minimalista con logo y datos de empresa -->
             <div class="baufer-header">
-                <div class="row">
-                    <div class="col-6">
-                        <img src="/baufer_sale_report/static/src/img/baufer_logo.png" 
-                             alt="BAUFER" 
-                             style="max-height: 80px;"/>
+                <div class="row align-items-center">
+                    <div class="col-7">
+                        <img src="/baufer_sale_report/static/src/img/baufer_logo.png"
+                             alt="BAUFER"
+                             class="baufer-logo"/>
                     </div>
-                    <div class="col-6 text-right baufer-company-info">
-                        <strong>Inversiones Séneca SpA.</strong><br/>
-                        <strong>Rut:</strong> 77.912.335-9<br/>
-                        El Bosque Norte 200, Oficina 701, Providencia.<br/>
-                        <span style="color: #FF6200;">contacto@baufer.cl</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="baufer-separator"/>
-            
-            <!-- Información del presupuesto y cliente -->
-            <div class="baufer-info-grid">
-                <div class="row">
-                    <div class="col-6">
-                        <table class="baufer-info-table">
-                            <tr>
-                                <td><strong>Fecha:</strong></td>
-                                <td><span t-field="doc.date_order" t-options='{"widget": "date"}'/></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Presupuesto:</strong></td>
-                                <td><span t-field="doc.name"/></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Cliente:</strong></td>
-                                <td><span t-field="doc.partner_id.name"/></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Dirección:</strong></td>
-                                <td><span t-field="doc.partner_id.street"/></td>
-                            </tr>
-                        </table>
-                    </div>
-                    
-                    <div class="col-6">
-                        <table class="baufer-info-table">
-                            <tr t-if="doc.customer_branch">
-                                <td><strong>Sucursal cliente:</strong></td>
-                                <td><span t-field="doc.customer_branch"/></td>
-                            </tr>
-                            <tr t-if="doc.customer_contact_name">
-                                <td><strong>Contacto:</strong></td>
-                                <td><span t-field="doc.customer_contact_name"/></td>
-                            </tr>
-                            <tr t-if="doc.customer_contact_email">
-                                <td><strong>Correo:</strong></td>
-                                <td><span t-field="doc.customer_contact_email"/></td>
-                            </tr>
-                            <tr t-if="doc.customer_contact_phone">
-                                <td><strong>Teléfono:</strong></td>
-                                <td><span t-field="doc.customer_contact_phone"/></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                
-                <!-- Información del vehículo -->
-                <div class="row" t-if="doc.vehicle_brand or doc.vehicle_model">
-                    <div class="col-12">
-                        <div class="baufer-separator-small"/>
-                        <table class="baufer-info-table">
-                            <tr>
-                                <td style="width: 15%;"><strong>Marca:</strong></td>
-                                <td style="width: 35%;"><span t-field="doc.vehicle_brand"/></td>
-                                <td style="width: 15%;"><strong>Modelo:</strong></td>
-                                <td style="width: 35%;"><span t-field="doc.vehicle_model"/></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Patente:</strong></td>
-                                <td><span t-field="doc.vehicle_plate"/></td>
-                                <td><strong>VIN:</strong></td>
-                                <td><span t-field="doc.vehicle_vin"/></td>
-                            </tr>
-                        </table>
+                    <div class="col-5 text-right">
+                        <div class="baufer-company-info">
+                            <div class="company-name">Inversiones Séneca SpA.</div>
+                            <div class="company-details">RUT 77.912.335-9</div>
+                            <div class="company-details">El Bosque Norte 200, Of. 701</div>
+                            <div class="company-details">Providencia, Santiago</div>
+                            <div class="company-email">contacto@baufer.cl</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="baufer-separator"/>
-            
-            <!-- Título de sección -->
-            <h4 class="baufer-section-title">I. Repuestos, partes o piezas</h4>
+
+            <!-- Separador minimalista -->
+            <div class="baufer-divider"/>
+
+            <!-- Título del documento -->
+            <div class="baufer-doc-title">
+                <div class="row">
+                    <div class="col-6">
+                        <h2 class="doc-type">COTIZACIÓN</h2>
+                    </div>
+                    <div class="col-6 text-right">
+                        <div class="doc-number"><span t-field="doc.name"/></div>
+                        <div class="doc-date"><span t-field="doc.date_order" t-options='{"widget": "date", "format": "dd/MM/yyyy"}'/></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Información del cliente - Grid minimalista -->
+            <div class="baufer-client-section">
+                <div class="section-label">CLIENTE</div>
+                <div class="row baufer-info-row">
+                    <div class="col-6">
+                        <div class="info-group">
+                            <span class="info-label">Nombre</span>
+                            <span class="info-value"><span t-field="doc.partner_id.name"/></span>
+                        </div>
+                        <div class="info-group" t-if="doc.partner_id.street">
+                            <span class="info-label">Dirección</span>
+                            <span class="info-value"><span t-field="doc.partner_id.street"/></span>
+                        </div>
+                        <div class="info-group" t-if="doc.customer_branch">
+                            <span class="info-label">Sucursal</span>
+                            <span class="info-value"><span t-field="doc.customer_branch"/></span>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="info-group" t-if="doc.customer_contact_name">
+                            <span class="info-label">Contacto</span>
+                            <span class="info-value"><span t-field="doc.customer_contact_name"/></span>
+                        </div>
+                        <div class="info-group" t-if="doc.customer_contact_email">
+                            <span class="info-label">Email</span>
+                            <span class="info-value"><span t-field="doc.customer_contact_email"/></span>
+                        </div>
+                        <div class="info-group" t-if="doc.customer_contact_phone">
+                            <span class="info-label">Teléfono</span>
+                            <span class="info-value"><span t-field="doc.customer_contact_phone"/></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Información del vehículo (si existe) -->
+            <div class="baufer-vehicle-section" t-if="doc.vehicle_brand or doc.vehicle_model or doc.vehicle_plate or doc.vehicle_vin">
+                <div class="section-label">VEHÍCULO</div>
+                <div class="row baufer-info-row">
+                    <div class="col-6">
+                        <div class="info-group" t-if="doc.vehicle_brand">
+                            <span class="info-label">Marca</span>
+                            <span class="info-value"><span t-field="doc.vehicle_brand"/></span>
+                        </div>
+                        <div class="info-group" t-if="doc.vehicle_model">
+                            <span class="info-label">Modelo</span>
+                            <span class="info-value"><span t-field="doc.vehicle_model"/></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="info-group" t-if="doc.vehicle_plate">
+                            <span class="info-label">Patente</span>
+                            <span class="info-value"><span t-field="doc.vehicle_plate"/></span>
+                        </div>
+                        <div class="info-group" t-if="doc.vehicle_vin">
+                            <span class="info-label">VIN</span>
+                            <span class="info-value"><span t-field="doc.vehicle_vin"/></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Etiqueta de sección de productos -->
+            <div class="section-label" style="margin-top: 30px;">DETALLE</div>
         </xpath>
-        
-        <!-- Reemplazar la tabla de productos -->
+
+        <!-- Reemplazar la tabla de productos - Diseño minimalista -->
         <xpath expr="//table[@name='sale_order_line_table']" position="replace">
-            <table class="table table-sm baufer-products-table" name="sale_order_line_table">
-                <thead class="baufer-table-header">
+            <table class="baufer-products-table" name="sale_order_line_table">
+                <thead>
                     <tr>
-                        <th class="text-center">Cant</th>
-                        <th class="text-left">Código</th>
-                        <th class="text-left">Descripción</th>
-                        <th class="text-center">Origen</th>
-                        <th class="text-right">Unitario</th>
-                        <th class="text-right">Total</th>
+                        <th class="col-qty">CANT.</th>
+                        <th class="col-code">CÓDIGO</th>
+                        <th class="col-desc">DESCRIPCIÓN</th>
+                        <th class="col-origin">ORIGEN</th>
+                        <th class="col-price">PRECIO UNIT.</th>
+                        <th class="col-total">TOTAL</th>
                     </tr>
                 </thead>
                 <tbody>
                     <t t-foreach="doc.order_line" t-as="line">
-                        <tr>
-                            <td class="text-center"><span t-field="line.product_uom_qty"/></td>
-                            <td><span t-field="line.product_code"/></td>
-                            <td><span t-field="line.name"/></td>
-                            <td class="text-center"><span t-field="line.origin_location"/></td>
-                            <td class="text-right">
-                                $<span t-field="line.price_unit" t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                        <tr class="product-line">
+                            <td class="col-qty"><span t-field="line.product_uom_qty"/></td>
+                            <td class="col-code"><span t-field="line.product_code"/></td>
+                            <td class="col-desc"><span t-field="line.name"/></td>
+                            <td class="col-origin"><span t-field="line.origin_location"/></td>
+                            <td class="col-price">
+                                <span t-field="line.price_unit"
+                                      t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
                             </td>
-                            <td class="text-right">
-                                $<span t-field="line.price_subtotal" t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                            <td class="col-total">
+                                <span t-field="line.price_subtotal"
+                                      t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
                             </td>
                         </tr>
                     </t>
                 </tbody>
             </table>
         </xpath>
-        
-        <!-- Reemplazar el total -->
+
+        <!-- Reemplazar el total - Diseño minimalista y elegante -->
         <xpath expr="//div[@id='total']" position="replace">
-            <div id="total" class="baufer-totals">
+            <div id="total" class="baufer-totals-section">
                 <div class="row">
-                    <div class="col-8"/>
-                    <div class="col-4">
-                        <table class="table table-sm baufer-totals-table">
-                            <tr t-if="doc.amount_total != doc.amount_untaxed">
-                                <td class="text-right"><strong>Descuento:</strong></td>
-                                <td class="text-right baufer-discount">
-                                    $ <span t-esc="'{:,.0f}'.format(sum(line.product_uom_qty * line.price_unit * (line.discount/100) for line in doc.order_line))"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-right"><strong>Sub-total:</strong></td>
-                                <td class="text-right">
-                                    $<span t-field="doc.amount_untaxed" t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
-                                </td>
-                            </tr>
-                            <tr t-if="doc.amount_tax">
-                                <td class="text-right"><strong>IVA (19%):</strong></td>
-                                <td class="text-right">
-                                    $<span t-field="doc.amount_tax" t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
-                                </td>
-                            </tr>
-                            <tr class="baufer-total-row">
-                                <td class="text-right"><strong>TOTAL:</strong></td>
-                                <td class="text-right">
-                                    <strong>$<span t-field="doc.amount_total" t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/></strong>
-                                </td>
-                            </tr>
-                        </table>
+                    <div class="col-7"/>
+                    <div class="col-5">
+                        <div class="totals-container">
+                            <!-- Descuento si existe -->
+                            <div class="total-line" t-if="doc.amount_total != doc.amount_untaxed">
+                                <span class="total-label">Descuento</span>
+                                <span class="total-value discount-value">
+                                    -<span t-esc="'{:,.0f}'.format(sum(line.product_uom_qty * line.price_unit * (line.discount/100) for line in doc.order_line))"/>
+                                </span>
+                            </div>
+
+                            <!-- Subtotal -->
+                            <div class="total-line">
+                                <span class="total-label">Subtotal</span>
+                                <span class="total-value">
+                                    <span t-field="doc.amount_untaxed"
+                                          t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                </span>
+                            </div>
+
+                            <!-- IVA -->
+                            <div class="total-line" t-if="doc.amount_tax">
+                                <span class="total-label">IVA (19%)</span>
+                                <span class="total-value">
+                                    <span t-field="doc.amount_tax"
+                                          t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                </span>
+                            </div>
+
+                            <!-- Total final -->
+                            <div class="total-line total-final">
+                                <span class="total-label">TOTAL</span>
+                                <span class="total-value">
+                                    <span t-field="doc.amount_total"
+                                          t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Nota al pie minimalista -->
+            <div class="baufer-footer-note">
+                <p style="margin: 0; font-size: 9px; color: #999;">
+                    Esta cotización tiene una validez de 30 días desde la fecha de emisión.
+                </p>
+            </div>
         </xpath>
-        
+
     </template>
-    
+
 </odoo>
 

@@ -1,18 +1,25 @@
 {
     'name': 'BAUFER - Reportes de Venta Personalizados',
-    'version': '19.0.1.0.0',
+    'version': '19.0.2.0.0',
     'category': 'Sales',
-    'summary': 'Cotizaciones personalizadas estilo BAUFER/SAP',
+    'summary': 'Cotizaciones profesionales con diseño minimalista y elegante',
     'description': '''
         Módulo que personaliza los reportes de cotización y pedidos de venta
-        con el diseño corporativo de BAUFER.
-        
-        Características:
-        - Diseño profesional con colores GULF (azul #003D7A y naranja #FF6200)
-        - Campos de vehículo (Marca, Modelo, Patente, VIN)
-        - Información de contacto mejorada
-        - Columna de código y origen en productos
-        - Reporte PDF personalizado estilo SAP
+        con un diseño corporativo profesional y minimalista de BAUFER.
+
+        Características principales:
+        ✓ Diseño minimalista y ultra profesional
+        ✓ Paleta de colores GULF (Azul #003D7A, Naranja #FF6200)
+        ✓ Tipografía moderna y jerarquía visual clara
+        ✓ Tabla de productos limpia con líneas sutiles
+        ✓ Sección de totales elegante y destacada
+        ✓ Campos personalizados de vehículo (Marca, Modelo, Patente, VIN)
+        ✓ Información de contacto mejorada y organizada
+        ✓ Columnas de código de producto y origen
+        ✓ Optimizado para impresión PDF de alta calidad
+        ✓ Responsive y adaptable a diferentes tamaños
+
+        Versión 2.0.0: Rediseño completo con enfoque minimalista
     ''',
     'author': 'BAUFER - Inversiones Séneca SpA.',
     'website': 'https://www.baufer.cl',
