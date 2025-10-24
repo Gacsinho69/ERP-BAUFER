@@ -1,0 +1,9 @@
+# Configuración para Odoo.sh
+# Este archivo le indica a Odoo.sh dónde encontrar los módulos custom
+
+[options]
+# Ruta de los módulos personalizados
+addons_path = addons
+
+# Versión de Odoo
+odoo_version = 19.0
